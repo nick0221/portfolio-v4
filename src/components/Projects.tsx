@@ -1,4 +1,4 @@
-import { Card, CardFooter, Button } from "@heroui/react";
+import { Card, CardFooter, Button, Chip } from "@heroui/react";
 
 export default function Projects() {
   const projects = [
@@ -56,28 +56,26 @@ export default function Projects() {
               </p>
               <div className="flex flex-wrap gap-2 mt-3">
                 {project.tech.map((tech, i) => (
-                  <span
-                    key={i}
-                    className="bg-primary/20 text-primary text-sm font-medium px-2 py-1 rounded"
-                  >
+                  <Chip key={i} variant="secondary" className="px-3 mt-4">
                     {tech}
-                  </span>
+                  </Chip>
                 ))}
               </div>
             </Card.Description>
             <CardFooter className="flex justify-between mt-4">
-              <Button size="sm" as="a" href={project.live} target="_blank">
-                Live Demo
-              </Button>
-              <Button
-                variant="secondary"
-                size="sm"
-                as="a"
+              <a href={project.live} target="_blank" rel="noopener noreferrer">
+                <Button size="sm">Live Demo</Button>
+              </a>
+
+              <a
                 href={project.github}
                 target="_blank"
+                rel="noopener noreferrer"
               >
-                GitHub
-              </Button>
+                <Button variant="ghost" size="sm">
+                  GitHub
+                </Button>
+              </a>
             </CardFooter>
           </Card>
         ))}
